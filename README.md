@@ -190,10 +190,10 @@ export default defineConfig({
         transform: (desc) => desc[0].toUpperCase() + desc.slice(1)letter
         filter: (options, { path }) => {
           // Skip file if not inside a collection
-          if (!path.starsWith('/src/content'))
+          if (!path.startsWith('/src/content'))
             return false
           // Use heading for description in 'projects' collection
-          if (!path.starsWith('/src/content/projects'))
+          if (!path.startsWith('/src/content/projects'))
             options.node = 'heading'
           // Edge case: first paragraph is an image, use the second
           if (path == '/src/content/blog/post-3.md')
