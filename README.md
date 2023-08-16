@@ -196,8 +196,8 @@ export default defineConfig({
             return false
           // Use heading for description in 'projects' collection
           if (!path.starsWith('/src/content/projects'))
-            return options.node = 'heading'
-          // Edge case: first paragraph is an image use the second
+            options.node = 'heading'
+          // Edge case: first paragraph is an image, use the second
           if (path == '/src/content/blog/post-3.md')
             options.skip = 1
           return options
