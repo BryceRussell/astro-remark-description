@@ -196,7 +196,7 @@ export default defineConfig({
           if (!path.startsWith('/src/content/projects'))
             options.node = 'heading'
           // Edge case: first paragraph is an image, use the second
-          if (path == '/src/content/blog/post-3.md')
+          if (path === '/src/content/blog/post-3.md')
             options.skip = 1
           return options
         }
