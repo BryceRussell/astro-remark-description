@@ -5,6 +5,7 @@ Automatically add a description to the frontmatter of your markdown in Astro
 ## How to use
 
 **1)** Install using the command `npm i astro-remark-description`
+
 **2)** Add plugin to `astro.config.mjs`
 
 ```ts
@@ -30,6 +31,8 @@ export default defineConfig({
 
 Name of key inside frontmatter
 
+---
+
 ### `override`
 
 **Type**: `boolean`
@@ -39,6 +42,8 @@ Name of key inside frontmatter
 - `true`: if frontmatter property already exists, replace it
 
 - `false`:  if frontmatter property already exists, skip file
+
+---
 
 ### `skip`
 
@@ -50,6 +55,8 @@ Number of nodes to skip before grabbing text
 
 For example, if the first pragraph contains an image, use  `{ skip: 1 }` to get the text of the next paragraph
 
+---
+
 ### `node`
 
 **Type**: [`unist-util-is`](https://github.com/syntax-tree/unist-util-is#test) test
@@ -60,6 +67,8 @@ Tag name tests: `"blockquote" | "break" | "code" | "definition" | "delete" | "em
 
 A test for finding nodes when looping over markdown to get text
 
+---
+
 ### `parent`
 
 **Type**: `'paragraph' | 'root' | 'blockquote' | 'delete' | 'emphasis' | 'footnoteDefinition' | 'heading' | 'link' | 'linkReference' | 'list' | 'listItem' | 'strong' | 'table' | 'tableCell' | 'tableRow'`
@@ -69,6 +78,8 @@ A test for finding nodes when looping over markdown to get text
 Type of the parent node
 
 For exmaple, if the text for your description is inside a list, the parent must be `'listItem'`
+
+---
 
 ### `transform`
 
@@ -98,6 +109,8 @@ Capitalize all descriptions
   }
 }
 ```
+
+---
 
 ### `filter`
 
