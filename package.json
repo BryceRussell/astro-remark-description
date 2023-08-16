@@ -1,6 +1,6 @@
 {
   "name": "astro-remark-description",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Remark plugin for Astro to automatically add description text to the frontmatter of markdown files",
   "author": "Bryce Russell",
   "license": "MIT",
