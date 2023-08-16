@@ -168,9 +168,7 @@ import remarkDescription from 'astro-remark-description'
 export default defineConfig({
   markdown: {
     remarkPlugins: [
-      [remarkDescription, {
-        name: excerpt
-      }]
+      [remarkDescription, { name: 'excerpt' }]
     ]
   }
 });
