@@ -98,15 +98,23 @@ type transform = (
 ) => any
 ```
 
-**Example**:
+**Example 1**:
 
-Capitalize all descriptions
+Only use the first sentence of description text
 
 ```ts
 {
-  transform: (desc) => {
-    return desc.toUpperCase()
-  }
+  transform: (desc) => desc.split('.')[0] + '.'
+}
+```
+
+**Example 2**:
+
+Capitalize all description text
+
+```ts
+{
+  transform: (desc) => desc.toUpperCase()
 }
 ```
 
@@ -149,7 +157,7 @@ Apply an edge case to a specific file
 
 ```ts
 {
-  transform: (options, { path }) => {
+  filter: (options, { path }) => {
     if (path == '/src/content/blog/post-3.md')
       options.skip = 2 // skip first 2 paragraphs
     return options
