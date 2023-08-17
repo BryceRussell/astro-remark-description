@@ -98,15 +98,23 @@ type transform = (
 ) => any
 ```
 
-**Example**:
+**Example 1**:
 
-Capitalize all descriptions
+Only use the first sentence of description text
 
 ```ts
 {
-  transform: (desc) => {
-    return desc.toUpperCase()
-  }
+  transform: (desc) => desc.split('.')[0] + '.'
+}
+```
+
+**Example 2**:
+
+Capitalize all description text
+
+```ts
+{
+  transform: (desc) => desc.toUpperCase()
 }
 ```
 
