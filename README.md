@@ -157,7 +157,7 @@ Apply an edge case to a specific file
 
 ```ts
 {
-  transform: (options, { path }) => {
+  filter: (options, { path }) => {
     if (path == '/src/content/blog/post-3.md')
       options.skip = 2 // skip first 2 paragraphs
     return options
