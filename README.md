@@ -193,9 +193,9 @@ export default defineConfig({
     remarkPlugins: [
       [remarkDescription, { 
         name: 'excerpt',
-        override: true
+        override: true,
         // Uppercase first letter in description
-        transform: (desc) => desc[0].toUpperCase() + desc.slice(1)letter
+        transform: (desc) => desc[0].toUpperCase() + desc.slice(1)letter,
         filter: (options, { path }) => {
           // Skip file if not inside a collection
           if (!path.startsWith('/src/content'))
@@ -207,7 +207,7 @@ export default defineConfig({
           if (path === '/src/content/blog/post-3.md')
             options.skip = 1
           return options
-        }
+        },
       }]
     ]
   }
