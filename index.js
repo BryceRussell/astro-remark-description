@@ -7,8 +7,10 @@ function formatPath(path) {
 
 export default function(options) {
   return function (tree, file) {
+    
+    const cwd = formatPath(file.cwd)
     const data = {
-      cwd: formatPath(file.cwd),
+      cwd,
       path: formatPath(file.history[0]).slice(cwd.length),
       frontmatter: file.data.astro.frontmatter
     }
