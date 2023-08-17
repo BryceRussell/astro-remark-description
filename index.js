@@ -7,11 +7,13 @@ function formatPath(path) {
 
 export default function(options) {
   return function (tree, file) {
-    if (typeof options?.filter === 'function') {
-      const cwd = formatPath(file.cwd)
-      const path = formatPath(file.history[0]).slice(cwd.length)
-      options = options.filter({ path, cwd, frontmatter: file.data.astro.frontmatter }, options)
+    const data = {
+      cwd: formatPath(file.cwd),
+      path: formatPath(file.history[0]).slice(cwd.length),
+      frontmatter: file.data.astro.frontmatter
     }
+
+    if (typeof options?.filter === 'function') options = options.filter(options, data)
     if (!options) return
 
     let skip = options?.skip || 0
@@ -23,7 +25,7 @@ export default function(options) {
       }
 
       let text = toString(node)
-      if (typeof options?.transform === 'function') text = options.transform(text)
+      if (typeof options?.transform === 'function') text = options.transform(text, data)
 
       const key = options?.name || 'description'
       options?.override
