@@ -22,7 +22,7 @@ export default function(options) {
 
     let skip = options?.skip || 0
     visit(tree, options?.node || 'paragraph', (node, index, parent) => {
-      if (parent.type !== (options?.parent || 'root')) return CONTINUE
+      if (parent?.type !== (options?.parent || 'root')) return CONTINUE
       if (skip > 0) {
         skip--
         return CONTINUE
