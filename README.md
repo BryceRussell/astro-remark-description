@@ -267,7 +267,8 @@ import remarkDescription from 'astro-remark-description'
 export default defineConfig({
   markdown: {
     remarkPlugins: [
-      [remarkDescription, { 
+      [remarkDescription, {
+        name: 'excerpt',
         node: (node, i, parent) => {
           const sibling = parent?.children[i + 1]
           return sibling?.type === 'html' && sibling?.value === '<!-- more -->'
