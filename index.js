@@ -1,5 +1,7 @@
-import { visit, EXIT, CONTINUE } from 'unist-util-visit'
-import { toString } from 'mdast-util-to-string'
+import { visit, EXIT, CONTINUE } from 'unist-util-visit';
+import { toString } from 'mdast-util-to-string';
+import { toHast } from 'mdast-util-to-hast'
+import { toHtml } from "hast-util-to-html";
 
 function formatPath(path) {
   return path.replace(/(\/\/)|(\\)/g, '/')
@@ -26,7 +28,7 @@ export default function(options) {
         return CONTINUE
       }
 
-      let text = toString(node)
+      let text = options?.html && toHtml(toHast(node)) || toString(node)
       if (typeof options?.transform === 'function') text = options.transform(text, data)
 
       const key = options?.name || 'description'
