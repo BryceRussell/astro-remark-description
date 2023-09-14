@@ -33,6 +33,16 @@ Name of key inside frontmatter
 
 ---
 
+### `html`
+
+**Type**: `boolean`
+
+**Default**: `false`
+
+Render node to a string of HTML
+
+---
+
 ### `override`
 
 **Type**: `boolean`
