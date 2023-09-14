@@ -104,6 +104,7 @@ type transform = (
     path: string,
     cwd: string,
     frontmatter: Record<string, any> | undefined
+    node: Node
   }
 ) => any
 ```
