@@ -252,3 +252,37 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed.
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed.
 :::
 ```
+
+### Emulating other Frameworks
+
+#### Hexo
+
+[Post Excerpt](https://hexo.io/docs/tag-plugins#Post-Excerpt)
+
+```js
+import { defineConfig } from 'astro/config';
+import remarkDescription from 'astro-remark-description'
+
+export default defineConfig({
+  markdown: {
+    remarkPlugins: [
+      [remarkDescription, { 
+        node: (node, i, parent) => {
+          const sibling = parent?.children[i + 1]
+          return sibling?.type === 'html' && sibling?.value === '<!-- more -->'
+        }
+      }]
+    ]
+  }
+});
+```
+
+```md
+# Heading
+
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed.
+
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed.
+
+<!-- more -->
+```
