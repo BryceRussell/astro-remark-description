@@ -28,6 +28,8 @@ export default function(options) {
         return CONTINUE
       }
 
+      data.node = node
+
       let text = options?.html && toHtml(toHast(node)) || toString(node)
       if (typeof options?.transform === 'function') text = options.transform(text, data)
 
