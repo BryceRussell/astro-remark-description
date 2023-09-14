@@ -213,3 +213,32 @@ export default defineConfig({
   }
 });
 ```
+
+### Using `remarkDirective` to target a node
+
+```js
+import { defineConfig } from 'astro/config';
+import remarkDescription from 'astro-remark-description'
+import remarkDirective from 'remark-directive'
+
+export default defineConfig({
+  markdown: {
+    remarkPlugins: [
+      remarkDirective,
+      [remarkDescription, { 
+        node: node => node.type === 'containerDirective' && node.name === 'description'
+      }]
+    ]
+  }
+});
+```
+
+```md
+# Heading
+
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed.
+
+:::description
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed.
+:::
+```
