@@ -4,6 +4,7 @@ import { toHast } from 'mdast-util-to-hast'
 import { toHtml } from "hast-util-to-html";
 
 function formatPath(path) {
+  if (path === undefined) return;
   return path.replace(/(\/\/)|(\\)/g, '/')
 }
 
