@@ -4,12 +4,15 @@ import { toHast } from 'mdast-util-to-hast'
 import { toHtml } from "hast-util-to-html";
 
 function formatPath(path) {
+  if (path === undefined) return;
   return path.replace(/(\/\/)|(\\)/g, '/')
 }
 
 export default function(options) {
   return function (tree, file) {
-    
+    if (file === undefined) {
+      return;
+    }
     const cwd = formatPath(file.cwd)
     const data = {
       cwd,
